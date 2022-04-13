@@ -377,8 +377,8 @@ namespace zich {
         string current;
         for (int i = 0; i<length; i++) {
             //we don't want ' ' in the string
-            if (will_split[(unsigned long)i] == ' ') {
-                break;}
+            if (will_split[(unsigned long)i] == ' ') { break;}
+            //we want to take numbers only so we don't want to take the characters of the structure of the matrix
             if (will_split[(unsigned long)i] != ']' && will_split[(unsigned long)i] != '[') {
                 if (will_split[(unsigned long)i] == character) {
                     ans.push_back(current);
@@ -396,8 +396,10 @@ namespace zich {
     istream &operator>>(istream &input, Matrix &matrix) {
         string input_matrix;
         char Input = '0';
+        //Vector variables that will keep us the numbers of the matrix
         vector<string> Columns;
         vector<string> Rows;
+        //The absorbed matrix will be retained in the answer variable
         vector<double> ans;
 
         //Absorb until the character arrives \ n
