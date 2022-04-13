@@ -3,7 +3,6 @@
 #include "Matrix.hpp"
 using namespace std;
 
-
 namespace zich {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Adding operators
@@ -14,15 +13,13 @@ namespace zich {
         if (this->Rows != other.Rows || this->Columns != other.Columns) {
             throw invalid_argument("The two matrices should have the same amount of columns and rows");
         }
-
         vector<double> ans;
         for (int i = 0; i < Rows; i++) {
             for (int j = 0; j < Columns; j++) {
                 //Inserting into the vector ans the final answer
                 ans.push_back((unsigned int) (this->Values[(double) ((i * Columns) + j)] +
                                               other.Values[(double) ((i * Columns) + j)]));
-            }
-        }
+            }}
         //Return of a new matrix type object with the updated data
         Matrix matrix(ans, other.Rows, other.Columns);
         return matrix;
@@ -51,8 +48,7 @@ namespace zich {
             for (int j = 0; j < other.Columns; j++) {
                 //Inserting into the vector ans the final answer
                 ans.push_back((double) other.Values[(double) ((i * other.Columns) + j)]);
-            }
-        }
+            }}
         //Return of a new matrix type object with the updated data
         Matrix matrix(ans, other.Rows, other.Columns);
         return matrix;
@@ -66,14 +62,12 @@ namespace zich {
         if (other.Rows != this->Rows || other.Columns != this->Columns) {
             throw invalid_argument("The two matrices should have the same amount of columns and rows");
         }
-
         vector<double> ans;
         for (int i = 0; i < other.Rows; i++) {
             for (int j = 0; j < other.Columns; j++) {
                 //Inserting into the vector ans the final answer
                 ans.push_back(this->Values[(double) ((i * Columns) + j)] - other.Values[(double) ((i * Columns) + j)]);
-            }
-        }
+            }}
         //Return of a new matrix type object with the updated data
         Matrix matrix(ans, other.Rows, other.Columns);
         return matrix;
@@ -85,13 +79,11 @@ namespace zich {
         if (other.Rows != this->Rows || other.Columns != this->Columns) {
             throw invalid_argument("The two matrices should have the same amount of columns and rows");
         }
-
         for (int i = 0; i < other.Rows; i++) {
             for (int j = 0; j < other.Columns; j++) {
                 //Inserting into this matrix the final answer
                 this->Values[(double) ((i * Columns) + j)] -= other.Values[(double) ((i * Columns) + j)];
-            }
-        }
+            }}
         //Return of pointer to the matrix on which we performed the operation
         return *this;
     }
@@ -103,8 +95,7 @@ namespace zich {
             for (int j = 0; j < other.Columns; j++) {
                 //Inserting into the vector ans the final answer
                 ans.push_back((-1) * other.Values[(double) ((i * other.Columns) + j)]);
-            }
-        }
+            }}
         //Return of a new matrix type object with the updated data
         Matrix matrix(ans, other.Rows, other.Columns);
         return matrix;
@@ -116,8 +107,8 @@ namespace zich {
     bool Matrix::operator>(Matrix &other) {
         //This operator can only accept matrices of this size
         if (other.Rows != this->Rows || other.Columns != this->Columns) {
-            throw invalid_argument("The two matrices should have the same amount of columns and rows");
-        }
+            throw invalid_argument("The two matrices should have the same amount of columns and rows");}
+
         double ans = 0;
         double ans_other = 0;
         for (int i = 0; i < other.Rows; i++) {
@@ -126,8 +117,7 @@ namespace zich {
                 ans = ans + this->Values[(double) ((i * Columns) + j)];
                 //Scheme of the variables in the other matrix and save
                 ans_other += other.Values[(double) ((i * Columns) + j)];
-            }
-        }
+            }}
         return ans > ans_other;
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -135,8 +125,7 @@ namespace zich {
     bool Matrix::operator>=(Matrix &other) {
         //This operator can only accept matrices of this size
         if (other.Rows != this->Rows || other.Columns != this->Columns) {
-            throw invalid_argument("The two matrices should have the same amount of columns and rows");
-        }
+            throw invalid_argument("The two matrices should have the same amount of columns and rows");}
         double ans = 0;
         double ans_other = 0;
         for (int i = 0; i < other.Rows; i++) {
@@ -145,8 +134,7 @@ namespace zich {
                 ans = ans + this->Values[(double) ((i * Columns) + j)];
                 //Scheme of the variables in the other matrix and save
                 ans_other += other.Values[(double) ((i * Columns) + j)];
-            }
-        }
+            }}
         return ans >= ans_other;
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -154,8 +142,7 @@ namespace zich {
     bool Matrix::operator<(Matrix &other) {
         //This operator can only accept matrices of this size
         if (other.Rows != this->Rows || other.Columns != this->Columns) {
-            throw invalid_argument("The two matrices should have the same amount of columns and rows");
-        }
+            throw invalid_argument("The two matrices should have the same amount of columns and rows");}
         double ans = 0;
         double ans_other = 0;
         for (int i = 0; i < other.Rows; i++) {
@@ -164,8 +151,7 @@ namespace zich {
                 ans = ans + this->Values[(double) ((i * Columns) + j)];
                 //Scheme of the variables in the other matrix and save
                 ans_other += other.Values[(double) ((i * Columns) + j)];
-            }
-        }
+            }}
         return ans < ans_other;
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -173,8 +159,7 @@ namespace zich {
     bool Matrix::operator<=(Matrix &other) {
         //This operator can only accept matrices of this size
         if (other.Rows != this->Rows || other.Columns != this->Columns) {
-            throw invalid_argument("The two matrices should have the same amount of columns and rows");
-        }
+            throw invalid_argument("The two matrices should have the same amount of columns and rows");}
         double ans = 0;
         double ans_other = 0;
         for (int i = 0; i < other.Rows; i++) {
@@ -183,8 +168,7 @@ namespace zich {
                 ans = ans + this->Values[(double) ((i * Columns) + j)];
                 //Scheme of the variables in the other matrix and save
                 ans_other += other.Values[(double) ((i * Columns) + j)];
-            }
-        }
+            }}
         return ans <= ans_other;
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -192,33 +176,25 @@ namespace zich {
     bool Matrix::operator==(const Matrix &other) const{
         //This operator can only accept matrices of this size
         if (other.Rows != Rows || other.Columns != Columns) {
-            throw invalid_argument("The two matrices should have the same amount of columns and rows");
-        }
+            throw invalid_argument("The two matrices should have the same amount of columns and rows");}
 
         for (int i = 0; i < Rows; i++) {
             for (int j = 0; j < Columns; j++) {
                 if (this->Values[(double) ((i * Columns) + j)] != other.Values[(double) ((i * Columns) + j)]) {
                     return false;
-                }
-            }
-        }
+                }}}
         return true;
     }
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     bool Matrix::operator!=(const Matrix &other) {
         //This operator can only accept matrices of this size
         if (other.Rows != Rows || other.Columns != Columns) {
-            throw invalid_argument("The two matrices should have the same amount of columns and rows");
-        }
-
+            throw invalid_argument("The two matrices should have the same amount of columns and rows");}
         for (int i = 0; i < Rows; i++) {
             for (int j = 0; j < Columns; j++) {
                 if (this->Values[(double) ((i * Columns) + j)] != other.Values[(double) ((i * Columns) + j)]) {
                     return true;
-                }
-            }
-        }
+                }}}
         return false;
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -252,8 +228,7 @@ namespace zich {
             for (int j = 0; j < this->Columns; j++) {
                 //Progress of each value in the matrix in 1
                 this->Values[(double) ((i * Columns) + j)] -= 1;
-            }
-        }
+            }}
         //Return of pointer to the matrix on which we performed the operation
         return *this;
     }
@@ -265,8 +240,7 @@ namespace zich {
             for (int j = 0; j < this->Columns; j++) {
                 //Subtraction of any value in the matrix in 1
                 this->Values[(double) ((i * Columns) + j)] -= 1;
-            }
-        }
+            }}
         return same;
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -279,10 +253,8 @@ namespace zich {
         //Go over each part of the matrix and multiply the variables
         for (int i = 0; i < other.Rows; i++) {
             for (int j = 0; j < other.Columns; j++) {
-                ans[(unsigned int) ((i * other.Columns) + j)] = (other.Values[(double) ((i * other.Columns) + j)] *
-                                                                 scalar);
-            }
-        }
+                ans[(unsigned int) ((i * other.Columns) + j)] = (other.Values[(double) ((i * other.Columns) + j)] *scalar);
+            }}
         //Return of a new matrix type object with the updated data
         Matrix matrix(ans, other.Rows, other.Columns);
         return matrix;
@@ -296,8 +268,7 @@ namespace zich {
             for (int j = 0; j < other.Columns; j++) {
                 ans[(unsigned int) ((i * other.Columns) + j)] = (other.Values[(double) ((i * other.Columns) + j)] *
                                                                  scalar);
-            }
-        }
+            }}
         //Return of a new matrix type object with the updated data
         Matrix matrix(ans, other.Rows, other.Columns);
         return matrix;
@@ -318,9 +289,7 @@ namespace zich {
     Matrix Matrix::operator*(const Matrix &other) {
         //In multiplication matrices the number of columns of the first matrix should be equal to the number of rows of the second matrix
         if (this->Columns != other.Rows) {
-            throw invalid_argument("The two matrices should have the same amount of columns and rows");
-        }
-
+            throw invalid_argument("The two matrices should have the same amount of columns and rows");}
         // Multiplication matrix's dimension by definition.
         vector<double> add_mat((unsigned long) (Rows * other.Columns), 0);
         //Go over each part of the matrix
@@ -332,8 +301,7 @@ namespace zich {
                     sum += Values[i*(unsigned long) (Columns) + k] * other.Values[k*(unsigned long) (other.Columns) + j];
                 }
                 add_mat.at(m++) = sum;
-            }
-        }
+            }}
         //Return of a new matrix type object with the updated data
         Matrix add{add_mat, Rows, other.Columns};
         return add;
@@ -344,8 +312,7 @@ namespace zich {
         for (int i = 0; i < this->Rows; i++) {
             for (int j = 0; j < this->Columns; j++) {
                 this->Values[(double) ((i * Columns) + j)] *= scalar;
-            }
-        }
+            }}
         //Return of pointer to the matrix on which we performed the operation
         return *this;
     }
@@ -360,14 +327,12 @@ namespace zich {
             for (int j = 0; j < matrix.Columns; ++j) {
                 output << matrix.Values[(double) ((i * matrix.Columns) + j)];
                 //If we have reached the last column
-                if (j < matrix.Columns - 1) {
+                if (j < matrix.Columns-1) {
                     output<< " ";
-                }
-            }
+                }}
             output << "]";
             //If we not have reached the last row
-            if(i != (matrix.Rows - 1)) {output << "\n";}
-        }
+            if(i != (matrix.Rows-1)) {output << "\n";}}
         return output;
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
