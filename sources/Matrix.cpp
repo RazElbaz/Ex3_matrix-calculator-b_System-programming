@@ -305,6 +305,7 @@ namespace zich {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Matrix &Matrix::operator*=(const Matrix &other) {
+        //Since we ran over the * operator we can use it
         *this = *this * other;
         //Return of pointer to the matrix on which we performed the operation
         return *this;
