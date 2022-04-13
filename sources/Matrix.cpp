@@ -378,15 +378,15 @@ namespace zich {
         for (int i = 0; i<length; i++) {
             //we don't want ' ' in the string
             if (will_split[(unsigned long)i] == ' ') {
-                continue;}
+                break;}
             if (will_split[(unsigned long)i] != ']' && will_split[(unsigned long)i] != '[') {
-                if (will_split[(unsigned long)i] != character) {
-                    //Taking the numbers only
-                    current += will_split[(unsigned long)i];}
-                else {
+                if (will_split[(unsigned long)i] == character) {
                     ans.push_back(current);
                     //Reset the sting to an empty sting
-                    current = "";
+                    current = "";}
+                else {
+                    //Taking the numbers only
+                    current += will_split[(unsigned long)i];
                 }}}
         ans.push_back(current);
         return ans;
