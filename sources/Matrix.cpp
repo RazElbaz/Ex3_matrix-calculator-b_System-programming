@@ -370,6 +370,7 @@ namespace zich {
         return output;
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     vector<string> Split_by_character(string will_split, char character) {
         int length=will_split.length();
         vector <string> ans;
