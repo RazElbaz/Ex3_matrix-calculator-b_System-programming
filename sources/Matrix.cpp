@@ -17,8 +17,7 @@ namespace zich {
         for (int i = 0; i < Rows; i++) {
             for (int j = 0; j < Columns; j++) {
                 //Inserting into the vector ans the final answer
-                ans.push_back((unsigned int) (this->Values[(double) ((i * Columns) + j)] +
-                                              other.Values[(double) ((i * Columns) + j)]));
+                ans.push_back((unsigned int) (this->Values[(double) ((i * Columns) + j)] +other.Values[(double) ((i * Columns) + j)]));
             }
         }
         //Return of a new matrix type object with the updated data
